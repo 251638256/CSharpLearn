@@ -55,7 +55,6 @@ namespace DynamicQuery
 
         private Expression ParseValue(QueryCondition condition)
         {
-
             Expression value = Expression.Constant(condition.Value);
             return value;
         }
@@ -78,6 +77,36 @@ namespace DynamicQuery
                     return Expression.LessThanOrEqual(key, Expression.Convert(value, key.Type));
                 case QueryOperator.NotEqual:
                     return Expression.NotEqual(key, Expression.Convert(value, key.Type));
+                case QueryOperator.IN:
+                    ConstantExpression constand = value as ConstantExpression;
+                    string[] names = constand.Value.ToString().Split(',');
+                    var equals = new List<BinaryExpression>() { // 创建一个永远不可能为true的表达式,如果equals count = 0, Aggregate将会报错
+                        Expression.MakeBinary(ExpressionType.Equal, Expression.Constant(false), Expression.Constant(true))
+                    };
+                    foreach (var item in names) {
+                        int result;
+                        if (int.TryParse(item, out result)) {
+                            var t = Expression.Equal(key, Expression.Convert(Expression.Constant(Convert.ToInt32(item)), key.Type));
+                            equals.Add(t);
+                        } else if (item.ToLower() == "null") { // nullable<>, class 等类型才可能有NULL
+                            equals.Add(Expression.Equal(key, Expression.Constant(null)));
+                        }
+                    }
+
+                    //Expression body = Expression.Constant(false); // or操作必须用flase 否则可能有意外成功
+                    //if (equals.Any()) {  // 如果equals.count=0,Aggregate会报错
+                    //    body = equals.Aggregate<Expression>((acc,condation) => Expression.OrElse(acc,condation));
+
+                    //    // 手写Aggregate()方法的实现
+                    //    //Expression body2 = Expression.Constant(false);
+                    //    //foreach (var item in equals) {
+                    //    //    body2 = Expression.OrElse(body2, item);
+                    //    //}
+                    //    //body = body2;
+                    //}
+
+                    var body = equals.Aggregate<Expression>((acc, condation) => Expression.OrElse(acc, condation));
+                    return body;
                 default:
                     throw new NotImplementedException();   //Operator IN is difficult to implenment. Wait a sec.....                
             }
