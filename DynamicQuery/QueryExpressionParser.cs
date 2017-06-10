@@ -88,7 +88,7 @@ namespace DynamicQuery
                         if (int.TryParse(item, out result)) {
                             var t = Expression.Equal(key, Expression.Convert(Expression.Constant(Convert.ToInt32(item)), key.Type));
                             equals.Add(t);
-                        } else if (item.ToLower() == "null") { // nullable<>, class 等类型才可能有NULL
+                        } else if (item.ToLower() == "null") { // nullable<>, class 等类型才可能有NULL,不要使用在值类型的对象上加入null的值
                             equals.Add(Expression.Equal(key, Expression.Constant(null)));
                         }
                     }
