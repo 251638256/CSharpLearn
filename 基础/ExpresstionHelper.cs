@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DynamicQuery;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace 基础 {
     class ExpresstionHelper {
+        static Model DBContext = new Model();
         public static void Parse() {
             var array = new Person []{
                 new Person { Age = 18, Name = "赞赏11", Scores = new Score { EnglishScore = 1, MathScore = 2, PhysicalScore = 3 } },
@@ -51,6 +53,19 @@ namespace 基础 {
 
             Console.WriteLine();
 
+        }
+
+        public static void ParseAndExucute() {
+            QueryDescriptor queryDescriptor = new QueryDescriptor();
+            queryDescriptor.Conditions = new List<QueryCondition>();
+            queryDescriptor.Conditions.Add(new QueryCondition { Key = "Name", Operator = QueryOperator.EQUAL, Value = "赞赏34", ValueType = "string" });
+            queryDescriptor.Conditions.Add(new QueryCondition { Key = "Age", Operator = QueryOperator.IN, Value = "13,NULL,19,15", ValueType = "int" });
+            queryDescriptor.Conditions.Add(new QueryCondition { Key = "Sex", Operator = QueryOperator.IN, Value = "1", ValueType = "int" });
+            var queryable = DBContext.People.Where(c => c.Age == 18 || c.Age == 19 || c.Age == 20).ToList();
+
+            //Person p = new Person() { Name = "王政元", Scores = new Score() };
+            //dbdontext.People.Add(p);
+            //dbdontext.SaveChanges();
         }
     }
 }

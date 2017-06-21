@@ -7,7 +7,15 @@ using System.Threading.Tasks;
 
 namespace 基础 {
     class ReflectionHelper {
-        static public void test() {
+
+        public static void Test() {
+            ReflectionHelper.basic();
+            ReflectionHelper.PrintMothods(typeof(string));
+            ReflectionHelper.GetProperty<int>();
+            ReflectionHelper.LateBind();
+        }
+
+        static public void basic() {
             PropertyInfo[] propertys = typeof(Person).GetProperties();
             foreach (var item in propertys) {
                 Console.WriteLine(item.Name + "==" + item.PropertyType);
@@ -61,6 +69,12 @@ namespace 基础 {
             }
             Console.WriteLine();
 
+        }
+
+        static public void LateBind() {
+            Type type = typeof(int);
+            object v = Activator.CreateInstance(typeof(Person));
+            Console.WriteLine();
         }
     }
 }

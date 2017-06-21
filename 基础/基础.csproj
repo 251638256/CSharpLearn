@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncHelper.cs" />
     <Compile Include="ExpresstionHelper.cs" />
     <Compile Include="EF\Model.cs" />
     <Compile Include="EF\Person.cs" />
