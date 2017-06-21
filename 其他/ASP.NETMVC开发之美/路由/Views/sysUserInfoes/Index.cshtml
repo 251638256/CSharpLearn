@@ -1,0 +1,141 @@
+﻿@model IEnumerable<路由.Models.sysUserInfo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.uLoginName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uLoginPWD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uRealName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uTelphone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uMobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uEmial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uQQ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uRemark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uCreatorID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uCreateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uUpdateID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uUpdateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sysOrganStruct.osName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sysOrganStruct1.osName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sysOrganStruct2.osName)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.uLoginName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uLoginPWD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uRealName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uTelphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uMobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uEmial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uQQ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uRemark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uCreatorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uCreateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uUpdateID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uUpdateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sysOrganStruct.osName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sysOrganStruct1.osName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sysOrganStruct2.osName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.uID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.uID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.uID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

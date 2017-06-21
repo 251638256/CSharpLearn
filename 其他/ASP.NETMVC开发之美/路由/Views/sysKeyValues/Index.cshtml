@@ -1,0 +1,65 @@
+﻿@model IEnumerable<路由.Models.sysKeyValue>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kvalue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KRemark)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kvalue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KRemark)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.KID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.KID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.KID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@model 路由.Models.sysKeyValue
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>sysKeyValue</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ParentID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ParentID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.KType)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.KType)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.KName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.KName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Kvalue)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Kvalue)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.KRemark)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.KRemark)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.KID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,168 @@
+﻿@model 路由.Models.sysUserInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>sysUserInfo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.uLoginName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uLoginName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uLoginPWD)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uLoginPWD)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uRealName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uRealName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uTelphone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uTelphone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uMobile)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uMobile)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uEmial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uEmial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uQQ)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uQQ)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uGender)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uGender)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uStatus)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uRemark)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uRemark)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uCreatorID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uCreatorID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uCreateTime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uCreateTime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uUpdateID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uUpdateID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.uUpdateTime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.uUpdateTime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sysOrganStruct.osName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sysOrganStruct.osName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sysOrganStruct1.osName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sysOrganStruct1.osName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sysOrganStruct2.osName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sysOrganStruct2.osName)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

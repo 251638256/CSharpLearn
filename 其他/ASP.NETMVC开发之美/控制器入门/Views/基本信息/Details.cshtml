@@ -1,0 +1,42 @@
+﻿@model 控制器入门.Models.基本信息
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>基本信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.姓名)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.姓名)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.性别)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.性别)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.年龄)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.年龄)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

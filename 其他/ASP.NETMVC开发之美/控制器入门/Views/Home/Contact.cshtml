@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div>
+    
+    @using (Html.BeginForm("Contact","Home",FormMethod.Post,new { id = "MyForm" })) {
+        @Html.TextBox("adas")
+        <input type="button" value="送出" id="submitButton"/>
+    }
+</div>
+<script>
+    $(function () {
+        $("#submitButton").on("click", function () {
+            //$("#MyForm").submit();
+            var objes = [
+                { "姓名": "张三", "性别": "男", "年龄": "25" },
+                { "姓名": "张三", "性别": "男", "年龄": "25" },
+                { "姓名": "张三", "性别": "男", "年龄": "25" },
+                { "姓名": "张三", "性别": "男", "年龄": "25" },
+                { "姓名": "张三", "性别": "男", "年龄": "25" },
+            ];
+            var aToStr = JSON.stringify(objes);
+            $.post("@Url.Action("Contact","Home")", aToStr, function (data, textStatus, jqXHR) {
+                //console.log(data);
+                console.log(textStatus);
+                console.log(jqXHR);
+            });
+        });
+    });
+</script>

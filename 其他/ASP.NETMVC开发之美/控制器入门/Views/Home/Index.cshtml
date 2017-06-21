@@ -1,0 +1,26 @@
+﻿
+
+@using DynamicQuery.Mvc;
+@using DynamicQuery;
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @ViewData["v1"].ToString()
+    @ViewData["v2"].ToString()
+    @ViewData["v3"].ToString()
+    @ViewData["sec"].ToString()
+</div>
+
+<div class="row">
+    @using (Html.BeginForm()) {
+        
+        @:search: @Html.QueryTextbox("AAA", QueryOperator.EQUAL, null)
+        @:fucking: @Html.TextBox("fucking")
+        @:money @Html.TextBox("money")
+        @:int @Html.TextBox("intvalue")
+        <input type="submit" value="送出" />
+    }
+</div>
